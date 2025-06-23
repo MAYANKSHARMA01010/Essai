@@ -1,15 +1,26 @@
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import { useCartStore } from "@/lib/cartStore";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
 import { Heart, ShoppingCart, Star } from "lucide-react";
-import type { Product } from "@shared/schema";
 
 interface ProductCardProps {
   product: Product;
 }
+
+export type Product = {
+  id: string;
+  name: string;
+  description?: string; // <-- Make this optional
+  isScented: boolean;
+  waxType: "soy" | "beeswax" | "coconut";
+  category: "luxury" | "seasonal" | "gift-set" | "travel" | "wellness";
+  price: number;
+  imageUrl?: string;
+  inStock: boolean;
+};
 
 export default function ProductCard({ product }: ProductCardProps) {
   const { addToCart } = useCartStore();
@@ -19,9 +30,9 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   const handleAddToCart = () => {
     addToCart({
-      id: product.id,
+      id: Number(product.id),
       name: product.name,
-      price: parseFloat(product.price),
+      price: product.price,
       imageUrl: product.imageUrl || "",
       quantity: 1,
     });
@@ -87,7 +98,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         </button>
 
         {/* Category badge */}
-        {product.category && product.category !== "scented" && product.category !== "unscented" && (
+        {product.category && (
           <div className="absolute top-4 left-4 opacity-90 group-hover:opacity-100 transition-opacity duration-300">
             <Badge className={`text-xs font-semibold backdrop-blur-sm ${getCategoryColor(product.category)} shadow-sm`}>
               {product.category === "gift-set" ? "Gift Set" : 
@@ -152,7 +163,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             </span>
             {product.category === "gift-set" && (
               <span className="text-xs text-gray-500 line-through">
-                ${(parseFloat(product.price) * 1.3).toFixed(2)}
+                ${(product.price * 1.3).toFixed(2)}
               </span>
             )}
           </div>

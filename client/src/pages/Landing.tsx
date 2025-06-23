@@ -55,7 +55,7 @@ export default function Landing() {
         {mobileMenuOpen && (
           <div className="md:hidden bg-white border-t">
             <div className="px-4 py-2 space-y-2">
-              <a href="#" className="block py-2 text-gray-700 hover:text-warm-amber">Home</a>
+              <a href="/Home" className="block py-2 text-gray-700 hover:text-warm-amber">Home</a>
               <a href="#products" className="block py-2 text-gray-700 hover:text-warm-amber">Shop</a>
               <a href="#" className="block py-2 text-gray-700 hover:text-warm-amber">Collections</a>
               <a href="#" className="block py-2 text-gray-700 hover:text-warm-amber">About</a>

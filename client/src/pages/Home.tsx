@@ -7,18 +7,33 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Search } from "lucide-react";
 import { useCartStore } from "@/lib/cartStore";
-import type { Product } from "@shared/schema";
+
+export type Product = {
+  id: string;
+  name: string;
+  description?: string; // <-- Make this optional
+  isScented: boolean;
+  waxType: "soy" | "beeswax" | "coconut";
+  category: "luxury" | "seasonal" | "gift-set" | "travel" | "wellness";
+  price: number;
+  imageUrl?: string;
+  inStock: boolean;
+};
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedFilter, setSelectedFilter] = useState("all");
   const { cartOpen, setCartOpen } = useCartStore();
-
   const { data: products = [], isLoading } = useQuery<Product[]>({
     queryKey: ["/api/products"],
   });
 
-  const filteredProducts = products.filter((product) => {
+  const productsWithStock = products.map((product) => ({
+    ...product,
+    inStock: typeof product.inStock === "boolean" ? product.inStock : true,
+  }));
+
+  const filteredProducts = productsWithStock.filter((product) => {
     const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          product.description?.toLowerCase().includes(searchTerm.toLowerCase());
     
@@ -36,6 +51,7 @@ export default function Home() {
     
     return matchesSearch;
   });
+
 
   const filters = [
     { id: "all", label: "All" },

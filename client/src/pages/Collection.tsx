@@ -8,7 +8,18 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Sparkles, Heart, Gift, Leaf, Sun, Moon, Star, ArrowRight } from "lucide-react";
 import { useCartStore } from "@/lib/cartStore";
-import type { Product } from "@shared/schema";
+
+export type Product = {
+  id: string;
+  name: string;
+  description?: string;
+  isScented: boolean;
+  waxType: "soy" | "beeswax" | "coconut";
+  category: "luxury" | "seasonal" | "gift-set" | "travel" | "wellness";
+  price: number;
+  imageUrl?: string;
+  inStock: boolean;
+};
 
 export default function Collection() {
   const [selectedCollection, setSelectedCollection] = useState<string | null>(null);

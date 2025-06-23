@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { useCartStore } from "@/lib/cartStore";
@@ -25,7 +25,6 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { CreditCard, MapPin } from "lucide-react";
-import type { Address } from "@shared/schema";
 
 interface CheckoutModalProps {
   open: boolean;
@@ -39,6 +38,21 @@ interface CheckoutFormData {
   expiryDate?: string;
   cvv?: string;
 }
+
+export type Address = {
+  isDefault: boolean;
+  firstName: ReactNode;
+  lastName: ReactNode;
+  address1: ReactNode;
+  address2: string;
+  zipCode: ReactNode;
+  id: string;
+  street: string;
+  city: string;
+  state: string;
+  postalCode: string;
+  country: string;
+};
 
 export default function CheckoutModal({ open, onOpenChange }: CheckoutModalProps) {
   const { cartItems, clearCart, getCartTotal } = useCartStore();

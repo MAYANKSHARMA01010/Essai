@@ -10,10 +10,41 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { MapPin, Package, Settings, Plus, Edit, Trash2, User } from "lucide-react";
 import { isUnauthorizedError } from "@/lib/authUtils";
-import type { Address, Order } from "@shared/schema";
+
+export type Address = {
+  id: string;
+  isDefault: boolean;
+  firstName: string;
+  lastName: string;
+  address1: string;
+  address2?: string;
+  zipCode: string;
+  street: string;
+  city: string;
+  state: string;
+  postalCode: string;
+  country: string;
+};
+
+export type Order = {
+  createdAt: string | number | Date;
+  id: string;
+  date: string;
+  total: number;
+  status: string;
+  // Add other fields as needed
+};
+
+type User = {
+  profileImageUrl?: string;
+  firstName?: string;
+  lastName?: string;
+  email: string;
+  // Add other fields as needed
+};
 
 export default function Profile() {
-  const { user, isLoading: authLoading } = useAuth();
+  const { user, isLoading: authLoading } = useAuth() as { user: User | null, isLoading: boolean };
   const { toast } = useToast();
   const [addressModalOpen, setAddressModalOpen] = useState(false);
   const [editingAddress, setEditingAddress] = useState<Address | undefined>();

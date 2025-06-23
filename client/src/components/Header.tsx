@@ -132,27 +132,13 @@ export default function Header() {
       {mobileMenuOpen && (
         <div className="md:hidden bg-white border-t">
           <div className="px-4 py-2 space-y-2">
-            <Link href="/" className="block py-2 text-gray-700 hover:text-brand-primary">
-              Home
-            </Link>
-            <Link href="/shop" className="block py-2 text-gray-700 hover:text-brand-primary">
-              Shop
-            </Link>
-            <Link href="/collection" className="block py-2 text-gray-700 hover:text-brand-primary">
-              Collections
-            </Link>
-            <Link href="/about" className="block py-2 text-gray-700 hover:text-brand-primary">
-              About
-            </Link>
-            <Link href="/contact" className="block py-2 text-gray-700 hover:text-brand-primary">
-              Contact
-            </Link>
-            <Link href="/blog" className="block py-2 text-gray-700 hover:text-brand-primary">
-              Blog
-            </Link>
-            <Link href="/faq" className="block py-2 text-gray-700 hover:text-brand-primary">
-              FAQ
-            </Link>
+            <Link href="/Home" className="block py-2 text-gray-700 hover:text-brand-primary">Home</Link>
+            <Link href="/About" className="block py-2 text-gray-700 hover:text-brand-primary">About</Link>
+            <Link href="/Blog" className="block py-2 text-gray-700 hover:text-brand-primary">Blog</Link>
+            <Link href="/FAQ" className="block py-2 text-gray-700 hover:text-brand-primary">FAQ</Link>
+            <Link href="/Shop" className="block py-2 text-gray-700 hover:text-brand-primary">Shop</Link>
+            <Link href="/Collection" className="block py-2 text-gray-700 hover:text-brand-primary">Collections</Link>
+            <Link href="/Contact" className="block py-2 text-gray-700 hover:text-brand-primary">Contact</Link>
           </div>
         </div>
       )}

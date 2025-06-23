@@ -9,7 +9,18 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Badge } from "@/components/ui/badge";
 import { Search, Filter, Grid, List, SlidersHorizontal } from "lucide-react";
 import { useCartStore } from "@/lib/cartStore";
-import type { Product } from "@shared/schema";
+
+export type Product = {
+  id: string;
+  name: string;
+  description?: string;
+  isScented: boolean;
+  waxType: "soy" | "beeswax" | "coconut";
+  category: "luxury" | "seasonal" | "gift-set" | "travel" | "wellness";
+  price: number;
+  imageUrl?: string;
+  inStock: boolean;
+};
 
 export default function Shop() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -33,7 +44,7 @@ export default function Shop() {
     
     let matchesPrice = true;
     if (priceRange !== "all") {
-      const price = parseFloat(product.price);
+      const price = product.price;
       switch (priceRange) {
         case "under-25":
           matchesPrice = price < 25;
@@ -53,9 +64,9 @@ export default function Shop() {
   const sortedProducts = [...filteredProducts].sort((a, b) => {
     switch (sortBy) {
       case "price-low":
-        return parseFloat(a.price) - parseFloat(b.price);
+        return a.price - b.price;
       case "price-high":
-        return parseFloat(b.price) - parseFloat(a.price);
+        return b.price - a.price;
       case "name":
         return a.name.localeCompare(b.name);
       default:
