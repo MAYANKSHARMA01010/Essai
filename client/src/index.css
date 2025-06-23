@@ -1,0 +1,385 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Enhanced warm candle-inspired theme */
+  --background: hsl(45, 75%, 98%);
+  --foreground: hsl(25, 20%, 15%);
+  --muted: hsl(42, 35%, 94%);
+  --muted-foreground: hsl(30, 15%, 45%);
+  --popover: hsl(45, 65%, 97%);
+  --popover-foreground: hsl(25, 20%, 15%);
+  --card: hsl(48, 50%, 96%);
+  --card-foreground: hsl(25, 20%, 15%);
+  --border: hsl(35, 25%, 88%);
+  --input: hsl(38, 30%, 92%);
+  --primary: hsl(25, 88%, 58%);
+  --primary-foreground: hsl(48, 85%, 95%);
+  --secondary: hsl(42, 35%, 90%);
+  --secondary-foreground: hsl(30, 25%, 20%);
+  --accent: hsl(38, 45%, 85%);
+  --accent-foreground: hsl(30, 25%, 20%);
+  --destructive: hsl(0, 75%, 55%);
+  --destructive-foreground: hsl(48, 85%, 95%);
+  --ring: hsl(25, 88%, 58%);
+  --radius: 0.75rem;
+  
+  /* 
+  ====================================================================
+  WAXHEAVE BRAND COLOR SYSTEM - PASTEL PALETTE
+  ====================================================================
+  
+  TO CHANGE COLORS: Update the hex values below and your entire site updates automatically!
+  
+  Current Palette (Soft Pastels):
+  #FBF8CC - Lemon Chiffon (background highlights)
+  #FDE4CF - Champagne Pink (light backgrounds)
+  #FFCFD2 - Baby Pink (medium accents)
+  #F1C0E8 - Pink Lavender (headers, borders)
+  #CFBAF0 - Lavender Blue (form inputs, tabs)
+  #A3C4F3 - Baby Blue Eyes (accent buttons)
+  */
+  
+  /* STEP 1: Update these hex codes to change your brand colors */
+  --brand-lemon-chiffon: #fbf8cc;   /* Lemon Chiffon - light backgrounds */
+  --brand-champagne-pink: #fde4cf;  /* Champagne Pink - soft backgrounds */
+  --brand-baby-pink: #ffcfd2;       /* Baby Pink - medium accents */
+  --brand-pink-lavender: #f1c0e8;   /* Pink Lavender - headers, borders */
+  --brand-lavender-blue: #cfbaf0;   /* Lavender Blue - form inputs */
+  --brand-baby-blue: #a3c4f3;       /* Baby Blue Eyes - accent buttons */
+  
+  /* STEP 2: Assign colors to roles (or keep as-is) */
+  --color-primary: var(--brand-pink-lavender);    /* Main buttons & links */
+  --color-primary-dark: var(--brand-lavender-blue); /* Hover states */
+  --color-primary-light: var(--brand-champagne-pink); /* Light backgrounds */
+  --color-secondary: var(--brand-baby-pink);      /* Secondary elements */
+  --color-accent: var(--brand-baby-blue);         /* Call-to-action */
+  --color-neutral: var(--brand-lemon-chiffon);    /* Subtle elements */
+  
+  /* Additional warm tones for candle theme */
+  --warm-amber: hsl(35, 91%, 55%);
+  --deep-amber: hsl(30, 95%, 45%);
+  --light-amber: hsl(40, 85%, 70%);
+  --amber-glow: hsl(35, 91%, 65%);
+  --soft-cream: hsl(45, 88%, 92%);
+  --warm-cream: hsl(42, 82%, 88%);
+  --warm-gray: hsl(25, 8%, 50%);
+  --warm-white: hsl(45, 90%, 98%);
+  --candle-orange: hsl(25, 88%, 60%);
+  --flame-red: hsl(15, 85%, 62%);
+}
+
+.dark {
+  /* Enhanced dark theme with warm candle ambiance */
+  --background: hsl(25, 15%, 8%);
+  --foreground: hsl(42, 60%, 95%);
+  --muted: hsl(30, 12%, 15%);
+  --muted-foreground: hsl(35, 20%, 65%);
+  --popover: hsl(25, 15%, 10%);
+  --popover-foreground: hsl(42, 60%, 95%);
+  --card: hsl(28, 18%, 12%);
+  --card-foreground: hsl(42, 60%, 95%);
+  --border: hsl(30, 15%, 22%);
+  --input: hsl(30, 15%, 18%);
+  --primary: hsl(25, 88%, 58%);
+  --primary-foreground: hsl(25, 15%, 8%);
+  --secondary: hsl(30, 12%, 20%);
+  --secondary-foreground: hsl(42, 60%, 95%);
+  --accent: hsl(30, 20%, 25%);
+  --accent-foreground: hsl(42, 60%, 95%);
+  --destructive: hsl(0, 75%, 55%);
+  --destructive-foreground: hsl(42, 60%, 95%);
+  --ring: hsl(25, 88%, 58%);
+  --radius: 0.75rem;
+  
+  /* WaxHeave Brand Colors for Dark Mode - Muted pastel variants */
+  --brand-lemon-chiffon: #3a3826;   /* Muted yellow for dark mode */
+  --brand-champagne-pink: #3d3228;  /* Muted champagne for dark mode */
+  --brand-baby-pink: #3d2d2f;       /* Muted pink for dark mode */
+  --brand-pink-lavender: #3a2d37;   /* Muted lavender for dark mode */
+  --brand-lavender-blue: #2d2a3a;   /* Muted blue for dark mode */
+  --brand-baby-blue: #252d3a;       /* Muted blue accent for dark mode */
+  
+  /* Semantic color mapping for dark mode */
+  --color-primary: var(--brand-pink-lavender);
+  --color-primary-dark: var(--brand-lavender-blue);
+  --color-primary-light: var(--brand-champagne-pink);
+  --color-secondary: var(--brand-baby-pink);
+  --color-accent: var(--brand-baby-blue);
+  --color-neutral: var(--brand-lemon-chiffon);
+  
+  /* Additional warm tones for dark mode */
+  --warm-amber: hsl(35, 91%, 55%);
+  --deep-amber: hsl(30, 95%, 45%);
+  --light-amber: hsl(40, 70%, 50%);
+  --amber-glow: hsl(35, 80%, 50%);
+  --soft-cream: hsl(45, 15%, 20%);
+  --warm-cream: hsl(42, 20%, 18%);
+  --warm-gray: hsl(25, 8%, 70%);
+  --warm-white: hsl(240, 10%, 3.9%);
+  --candle-orange: hsl(25, 70%, 50%);
+  --flame-red: hsl(15, 70%, 55%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  /* Brand Color Text Utilities */
+  .text-brand-primary {
+    color: var(--color-primary);
+  }
+  
+  .text-brand-primary-dark {
+    color: var(--color-primary-dark);
+  }
+  
+  .text-brand-primary-light {
+    color: var(--color-primary-light);
+  }
+  
+  .text-brand-secondary {
+    color: var(--color-secondary);
+  }
+  
+  .text-brand-accent {
+    color: var(--color-accent);
+  }
+  
+  .text-brand-neutral {
+    color: var(--color-neutral);
+  }
+  
+  /* Brand Color Background Utilities */
+  .bg-brand-primary {
+    background-color: var(--color-primary);
+  }
+  
+  .bg-brand-primary-dark {
+    background-color: var(--color-primary-dark);
+  }
+  
+  .bg-brand-primary-light {
+    background-color: var(--color-primary-light);
+  }
+  
+  .bg-brand-secondary {
+    background-color: var(--color-secondary);
+  }
+  
+  .bg-brand-accent {
+    background-color: var(--color-accent);
+  }
+  
+  .bg-brand-neutral {
+    background-color: var(--color-neutral);
+  }
+  
+  /* Brand Color Border Utilities */
+  .border-brand-primary {
+    border-color: var(--color-primary);
+  }
+  
+  .border-brand-secondary {
+    border-color: var(--color-secondary);
+  }
+  
+  .border-brand-accent {
+    border-color: var(--color-accent);
+  }
+  
+  /* Hover States */
+  .hover\:bg-brand-primary:hover {
+    background-color: var(--color-primary);
+  }
+  
+  .hover\:bg-brand-primary-dark:hover {
+    background-color: var(--color-primary-dark);
+  }
+  
+  .hover\:text-brand-primary:hover {
+    color: var(--color-primary);
+  }
+  
+  .hover\:text-brand-accent:hover {
+    color: var(--color-accent);
+  }
+  
+  /* Focus States */
+  .focus\:ring-brand-primary:focus {
+    --tw-ring-color: var(--color-primary);
+  }
+  
+  .focus\:ring-brand-accent:focus {
+    --tw-ring-color: var(--color-accent);
+  }
+  
+  /* Legacy warm color utilities for existing components */
+  .text-warm-amber {
+    color: var(--warm-amber);
+  }
+  
+  .bg-warm-amber {
+    background-color: var(--warm-amber);
+  }
+  
+  .border-warm-amber {
+    border-color: var(--warm-amber);
+  }
+
+  /* Custom animations */
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+  }
+
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(245, 158, 11, 0.4); }
+    50% { box-shadow: 0 0 40px rgba(245, 158, 11, 0.7); }
+  }
+
+  @keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% { 
+      box-shadow: 0 0 5px rgba(245, 158, 11, 0.5),
+                  0 0 10px rgba(245, 158, 11, 0.3),
+                  0 0 15px rgba(245, 158, 11, 0.2); 
+    }
+    50% { 
+      box-shadow: 0 0 10px rgba(245, 158, 11, 0.8),
+                  0 0 20px rgba(245, 158, 11, 0.5),
+                  0 0 30px rgba(245, 158, 11, 0.3); 
+    }
+  }
+
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes scale-in {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  .animate-shake {
+    animation: shake 0.5s ease-in-out;
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-flicker {
+    animation: flicker 2s ease-in-out infinite;
+  }
+
+  .animate-glow-pulse {
+    animation: glow-pulse 3s ease-in-out infinite;
+  }
+
+  .animate-gradient-shift {
+    animation: gradient-shift 4s ease infinite;
+    background-size: 200% 200%;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.3s ease-out;
+  }
+
+  /* Brand gradient utilities - Pastel theme */
+  .text-gradient-brand {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-brand-warm {
+    background: linear-gradient(135deg, var(--color-primary-light), var(--color-secondary), var(--color-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-brand {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  }
+
+  .bg-gradient-brand-soft {
+    background: linear-gradient(135deg, var(--color-primary-light), var(--color-neutral));
+  }
+
+  .bg-gradient-brand-accent {
+    background: linear-gradient(135deg, var(--color-secondary), var(--color-accent));
+  }
+
+  .bg-gradient-brand-full {
+    background: linear-gradient(135deg, var(--color-neutral), var(--color-primary-light), var(--color-primary), var(--color-accent));
+  }
+
+  .bg-gradient-pastel {
+    background: linear-gradient(135deg, #fbf8cc, #fde4cf, #ffcfd2, #f1c0e8, #cfbaf0, #a3c4f3);
+  }
+
+  /* Legacy gradient utilities */
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(35, 91%, 55%), hsl(30, 95%, 45%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-warm {
+    background: linear-gradient(135deg, hsl(35, 91%, 55%), hsl(30, 95%, 45%));
+  }
+
+  /* Glass morphism effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  /* Hover lift effect */
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+}
