@@ -4,6 +4,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { useCartStore } from "@/lib/cartStore";
 import { Button } from "@/components/ui/button";
 import { Flame, Search, ShoppingCart, User, Menu, LogOut } from "lucide-react";
+import Navbar from "./navbar";
 
 export default function Header() {
   const { user, isLoading } = useAuth();
@@ -57,26 +58,7 @@ export default function Header() {
           </Link>
 
           {/* Navigation */}
-          <nav className="hidden md:flex space-x-8">
-            <Link href="/" className="text-gray-700 hover:text-brand-primary transition-colors font-medium">
-              Home
-            </Link>
-            <Link href="/shop" className="text-gray-700 hover:text-brand-primary transition-colors font-medium">
-              Shop
-            </Link>
-            <Link href="/collection" className="text-gray-700 hover:text-brand-primary transition-colors font-medium">
-              Collections
-            </Link>
-            <Link href="/about" className="text-gray-700 hover:text-brand-primary transition-colors font-medium">
-              About
-            </Link>
-            <Link href="/contact" className="text-gray-700 hover:text-brand-primary transition-colors font-medium">
-              Contact
-            </Link>
-            <Link href="/blog" className="text-gray-700 hover:text-brand-primary transition-colors font-medium">
-              Blog
-            </Link>
-          </nav>
+          <Navbar />
 
           {/* User Actions */}
           <div className="flex items-center space-x-2">

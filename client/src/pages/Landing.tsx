@@ -3,12 +3,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { Flame, Search, ShoppingCart, User, Menu, Star, Shield, Truck, Heart } from "lucide-react";
+import Navbar from "@/components/navbar";
 
 export default function Landing() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleLogin = () => {
-    window.location.href = "/api/login";
+    window.location.href = "login";
   };
 
   return (
@@ -24,13 +25,7 @@ export default function Landing() {
             </div>
 
             {/* Navigation */}
-            <nav className="hidden md:flex space-x-8">
-              <a href="#" className="text-gray-700 hover:text-warm-amber transition-colors font-medium">Home</a>
-              <a href="#products" className="text-gray-700 hover:text-warm-amber transition-colors font-medium">Shop</a>
-              <a href="#" className="text-gray-700 hover:text-warm-amber transition-colors font-medium">Collections</a>
-              <a href="#" className="text-gray-700 hover:text-warm-amber transition-colors font-medium">About</a>
-              <a href="#" className="text-gray-700 hover:text-warm-amber transition-colors font-medium">Contact</a>
-            </nav>
+            <Navbar />
 
             {/* User Actions */}
             <div className="flex items-center space-x-4">
